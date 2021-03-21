@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>transfer</title>
+{% endblock %}
+
+{% block header %}
+    <h1 style="text-align: center;"> Transfer Panel <a href="/" id="home">Home</a></h1>
+{% endblock %}
+
+{% block content %}    
+    <table>
+        <thead>
+            <tr>
+                <th>name</th> <th>email</th> <th>current balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{customer.name}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.current_balance}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="form-container">
+        <form action="/transfer/{{customer.id}}" method="POST">
+            <label for="select_customer">Select Payee:</label>
+            <select name="select_customer" id="select_customer" required>
+                {% for payee in payees %}
+                    <option hidden value="" disabled selected></option>
+                    {% if not payee.id == customer.id %}
+                        <option value="{{payee.id}}">{{payee.name}}</option>
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+            <label for="entered_amount">Enter The Amount To Transfer:</label>
+            <input type="number" name="entered_amount" id="entered_amount" min="0" max="{{customer.current_balance}}" step="any">
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+{% endblock %}

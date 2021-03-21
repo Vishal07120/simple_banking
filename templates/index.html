@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock %}
+
+{% block header %}
+    <h1 style="text-align: center;"> Customer List </h1>
+{% endblock %}
+
+{% block content %}    
+    <table>
+        <thead>
+            <tr>
+                 <th>name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>
+                        <a href="/customer/{{customer.id}}">{{customer.name}}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

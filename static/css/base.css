@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(155, 155, 155);;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    margin: 1em auto;
+}
+
+#home{
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0.5em 1em;
+    text-decoration: none;
+    font-weight: 800;
+    padding: 0.5em 1em;
+    background-color:rgb(35, 104, 255);
+    color: snow;
+    border-radius: 0.5em;
+}
+
+#home:hover{
+    background-color: rgb(35, 39, 255);
+}
+
+table{
+    width: 70%;
+    margin: 2em auto;
+    text-align: center;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 8px;
+}
+
+table th, td{
+    padding: 1em 1.5em;
+    border: 1px solid rgb(51, 51, 51);
+}
+table thead{
+    background-color:slategrey;
+}
+table th{
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 800;
+}
+table tbody{
+    background-color: snow;
+}
+table td{
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+table a{
+    text-decoration: none;
+    color:rgb(35, 104, 255);
+}
+
+.form-container{
+    margin: 1.5em auto;
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 5px;
+    padding: 1em 1.5em;
+    background-color: snow;
+    width: 70%;
+}
+
+form{
+    margin: 0.5em auto;
+}
+
+label, select, input{
+    display: block;
+    margin: 1em;
+}
+
+label{
+    font-weight: 800;
+}
+
+#submit{
+    padding: 0.5em 1em;
+    font-weight: 800;
+    border: none;
+    border-radius: 0.5em;
+    background-color:rgb(35, 104, 255);
+    color: snow;
+}
+#submit:hover{
+    padding: 0.5em 1em;
+    font-weight: 800;
+    border: none;
+    border-radius: 0.5em;
+    background-color:rgb(35, 39, 255);
+    cursor: pointer;
+    color: snow;
+}

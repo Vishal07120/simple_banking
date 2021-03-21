@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Customer Detail</title>
+{% endblock %}
+
+{% block header %}
+    <h1 style="text-align: center;"> Customer Detail <a href="/" id="home">Home</a></h1>
+    
+{% endblock %}
+
+{% block content %}    
+    <table>
+        <thead>
+            <tr>
+                 <th>name</th> <th>email</th> <th>current balance</th> <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{customer.name}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.current_balance}}</td>
+                <td>
+                    <a href="/transfer/{{customer.id}}">Transfer</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 style="text-align: center;">Transfer History</h1>
+    <table>
+            <thead>
+                <tr>
+                     <th>Transaction ID</th> <th>withdraw</th> <th>deposit</th> <th>balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transfer in transfers_receivers %}
+                <tr>
+                    <td>{{transfer.transaction_id}}</td>
+                    <td style="color: red;"> - </td>
+                    <td style="color: blue;">{{transfer.amount}}</td>
+                    <td>{{transfer.receiver_temp_balance}}</td>
+                </tr>
+                {% endfor %}
+
+                {% for transfer in transfers_sender %}
+                <tr>
+                    <td>{{transfer.transaction_id}}</td>
+                    <td style="color: red;"> {{transfer.amount}} </td>
+                    <td style="color: blue;"> - </td>
+                    <td>{{transfer.sender_temp_balance}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+{% endblock %}
